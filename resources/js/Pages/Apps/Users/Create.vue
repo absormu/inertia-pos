@@ -36,7 +36,16 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="fw-bold">Username</label>
+                                                <input class="form-control" v-model="form.username" :class="{ 'is-invalid': errors.username }" type="username" placeholder="Username">
+                                            </div>
+                                            <div v-if="errors.username" class="alert alert-danger">
+                                                {{ errors.username }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
                                             <div class="mb-3">
                                                 <label class="fw-bold">Password</label>
                                                 <input class="form-control" v-model="form.password" :class="{ 'is-invalid': errors.password }" type="password" placeholder="Password">
@@ -45,7 +54,7 @@
                                                 {{ errors.password }}
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="mb-3">
                                                 <label class="fw-bold">Password Confirmation</label>
                                                 <input class="form-control" v-model="form.password_confirmation" type="password" placeholder="Password Confirmation">
@@ -125,6 +134,7 @@
             const form = reactive({
                 name: '',
                 email: '',
+                username: '',
                 password: '',
                 password_confirmation: '',
                 roles: []
@@ -138,6 +148,7 @@
                     //data
                     name: form.name,
                     email: form.email,
+                    username: form.username,
                     password: form.password,
                     password_confirmation: form.password_confirmation,
                     roles: form.roles

@@ -26,14 +26,14 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <i class="fa fa-envelope"></i>
+                                        <i class="fa fa-user"></i>
                                     </span>
                                 </div>
-                                <input class="form-control" v-model="form.email" :class="{ 'is-invalid': errors.email }" type="email" placeholder="Email Address">
+                                <input class="form-control" v-model="form.username" :class="{ 'is-invalid': errors.username }" type="username" placeholder="Username"> 
                             </div>
-                            <div v-if="errors.email" class="alert alert-danger">
-                                {{ errors.email }}
-                            </div>
+                            <div v-if="errors.username" class="alert alert-danger">
+                                {{ errors.username }}
+                            </div> 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
@@ -46,9 +46,9 @@
                                 {{ errors.password }}
                             </div>
                             <div class="row">
-                                <div class="col-12 mb-3 text-end">
+                                <!-- <div class="col-12 mb-3 text-end">
                                     <Link href="/forgot-password">Forgot Password?</Link>
-                                </div>
+                                </div> -->
                                 <div class="col-12">
                                     <button class="btn btn-primary shadow-sm rounded-sm px-4 w-100" type="submit">LOGIN</button>
                                 </div>
@@ -98,7 +98,8 @@
 
             //define form state
             const form = reactive({
-                email: '',
+                // email: '',
+                username: '',
                 password: '',
             });
 
@@ -108,8 +109,8 @@
                 //send data to server
                 Inertia.post('/login', {
 
-                    //data
-                    email: form.email,
+                    //data 
+                    username: form.username,
                     password: form.password,
                 });
             }
