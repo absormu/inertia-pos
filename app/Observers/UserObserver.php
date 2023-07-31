@@ -5,7 +5,7 @@ namespace App\Observers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class PostObserver
+class UserObserver
 {
     public function creating(User $user)
     {
